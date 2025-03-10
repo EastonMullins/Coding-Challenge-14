@@ -56,3 +56,10 @@ ticketCards.forEach((card) => {
     }
 });
 
+// Task 4 - Support Ticket Resolution with Event Bubbling
+//Added resolve event listner in task 2
+
+const ticketContainer = document.getElementById("ticketContainer");
+ticketContainer.addEventListener("click", function () {
+    console.log("Card Clicked");
+});
