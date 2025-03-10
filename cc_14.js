@@ -44,3 +44,15 @@ addTicketCard("Colby Mullins", "Perfect ticket.", "High");
 addTicketCard("Alice Clark", "Too expensive.", "Low");
 addTicketCard("Bryce Marsh", "Queue is sooo long.", "High");
 
+
+// Task 3 - Converting NodeLists to Arrays for Bulk Updates
+
+let ticketCards = Array.from(document.querySelectorAll(".ticket-card"));
+
+ticketCards.forEach((card) => {
+    if (card.textContent.includes(`High`)){
+    card.style.backgroundColor = "gold";
+    card.style.color = "red";
+    }
+});
+
