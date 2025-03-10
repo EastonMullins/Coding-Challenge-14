@@ -63,3 +63,43 @@ const ticketContainer = document.getElementById("ticketContainer");
 ticketContainer.addEventListener("click", function () {
     console.log("Card Clicked");
 });
+
+
+//Task 5 - Inline Editing for Support Tickets
+
+ticketCards.forEach(card => {
+    card.addEventListener("dblclick", function () {
+        const nameElement = card.querySelector("h2");
+        const issueElement = card.querySelector("p");
+        const priorityElement = card.querySelector("span");
+
+        const nameInput = document.createElement("input");
+        nameInput.value = nameElement.textContent;
+
+        const issueInput = document.createElement("input");
+        issueInput.value = issueElement.textContent;
+
+        const priorityInput = document.createElement("input");
+        priorityInput.value = priorityElement.textContent;
+
+        card.replaceChild(nameInput, nameElement);
+        card.replaceChild(issueInput, issueElement);
+        card.replaceChild(priorityInput, priorityElement);
+
+        const saveButton = document.createElement("button");
+        saveButton.textContent = "Save";
+
+        card.appendChild(saveButton);
+
+        saveButton.addEventListener("click", function () {
+            nameElement.textContent = nameInput.value;
+            issueElement.textContent = issueInput.value;
+            priorityElement.textContent = priorityInput.value
+
+            card.replaceChild(nameElement, nameInput);
+            card.replaceChild(issueElement, issueInput);
+            card.replaceChild(priorityElement, priorityInput);
+            card.removeChild(this);
+        })
+    });
+});
